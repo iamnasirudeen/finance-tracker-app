@@ -14,17 +14,17 @@
     <!-- <link rel='stylesheet' type='text/css' href='/css/responsive.css'> -->
     <link rel='stylesheet' type='text/css' href='/css/style.css'>
     <style>
-    body{
+    /* body{
         font-family: 'Roboto', sans-serif;
-    }
-        body{
-            background: url(/img/126.jpg) no-repeat;
+    } */
+        /* body{
+            background: url(/img/money.png) no-repeat;
             background-size: cover;
             height: 100%;
-        }
+        } */
         .login-container {
 		width: 360px;
-		margin: 0 auto;
+		/* margin: 0 auto; */
 	}
 
 	@media screen and (max-width: 768px) {
@@ -54,13 +54,24 @@
 	font-size: 0.875rem;
 	background: #fff;
 	border-radius: 3px;
-	border: 1px solid #dee2e6 !important;
+	border: 1px solid lightgreen;
 }
 .form-control:focus {
 	color: #5f656b;
 	background: none;
 	outline: 0;
-	box-shadow: none;
+    box-shadow: none;
+    border: 1px solid lightgreen !important;
+}
+.btn.btn-outline-info{
+    border: 2px solid lightgreen
+}
+.btn.btn-outline-info:hover{
+    background:lightgreen
+}
+.btn.btn-outline-info:focus{
+    background:lightgreen !important;
+    border: 2px solid lightgreen !important;
 }
 p.separator {
 		position: relative;
@@ -84,7 +95,7 @@ p.separator {
 		top: 50%;
 		left: 0;
 	}
-    .overlay{
+    /* .overlay{
         background: rgba(0, 0, 0, 0.5);
         background-size: cover;
         height: 100%;
@@ -93,12 +104,20 @@ p.separator {
         .overlay{
             height: 100%;
         }
-    }
+    } */
+    body {
+        font-family: 'Roboto', sans-serif !important;
+  min-height:100%;
+  /* background:linear-gradient(0deg,rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url(/img/money.png); */
+  background-size:cover;
+  background: url(/img/money.png);
+  /* background-repeat: no-repeat; */
+  }
     </style>
 </head>
 <body>
 <div class="overlay">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
        <div class="container">
          <a class="navbar-brand" href="/">Helios Finance Tracker</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -110,7 +129,7 @@ p.separator {
         <a class="nav-link" href="/about">About Us</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="/faq">Faq</a>
+        <a class="nav-link" href="/faq">FAQ</a>
       </li>
       <% if(user) { %>
             <li class="nav-item active">
@@ -129,27 +148,28 @@ p.separator {
                 <div class="col-md-6 text-white">
                     <div class="mid-container">
             
-            <div class="mid-text">
-                <span class="circle"></span>
-                <span class="circle1"></span>
-                <h2>Welcome to Finance Tracker by <span class="text1">Team Helios</span></h2> 
-                <br>
-                <br>
-                <br>
-                <p class="description">Can’t keep track of your purchases?
-                Worry no more! With our finance tracker
-                you can track your weekly, monthly, and
-                yearly purchases.</p>
-            </div>
-            
-            <!-- <div class="mid-logo">
-                <img src="/img/money.png" width=100% />
-            </div> -->
-            
-        </div>
+                        <div class="mid-text text-dark">
+                            <span class="circle"></span>
+                            <span class="circle1"></span>
+                            <h2 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Welcome to Finance Tracker</h2> 
+                            <span class="text" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">by</span>
+                            
+                            <p class="mt-5"><span class="text1" style="text-shadow: 2px 2px 3px rgba(0,0,0,0.9);
+                                -webkit-background-clip: text;
+                                   -moz-background-clip: text;
+                                        background-clip: text;
+                              ">Team Helios</span></p>
+                            <p class="description" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Can’t keep track of your purchases?
+                            Worry no more! With our finance tracker
+                            you can track your weekly, monthly, and
+                            yearly purchases.</p>
+                        </div>
+                        
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="login-container bg-white">
+                    <div class="float-md-right float-none">
+                    <div class="login-container bg-white" style="border-radius: 15px; border: 3px solid lightgreen">
 	<div class="container py-5 m-auto text-center shadow">
 		<div class="row">
 			<div class="col-12 text-center text-md-left login-box-body">
@@ -192,14 +212,15 @@ p.separator {
 							/>
 						</div>
 						<div class="form-group">
-							<button class="btn btn-outline-info btn-block">Login</button>
+							<button class="btn btn-success btn-block">Login</button>
 						</div>
 						<div class="form-group">
-							<small><a href="/signup">Not a member? Sign up</a></small>
+							<small><a href="/signup" style="color: black;">Not a member? Sign up</a></small>
 						</div>
 					</form>
 				</div>
-			</div>
+            </div>
+        </div>
 		</div>
 	</div>
 </div>

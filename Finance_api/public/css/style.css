@@ -57,8 +57,8 @@ li a:link, li a:visited {
 } */
 
 .mid-container {
-    /* display: flex;
-    justify-content: space-between; */
+    display: flex;
+    justify-content: space-between;
     width: 80%;
     margin: 80px auto 50px;
     position: relative;
