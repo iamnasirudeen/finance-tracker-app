@@ -1,0 +1,170 @@
+
+
+/* .header {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 20px auto;
+} */
+
+/* h3,
+h1 {
+    font-family: 'Courgette', cursive, Sans-Serif;
+    font-weight: bold;
+} */
+
+/* input[type="text"],
+input[type="email"],
+input[type="password"] {
+    font-family: cursive, Sans-Serif;
+    font-weight: normal;
+} */
+
+/* ul {
+    display: flex;
+    list-style: none;
+}
+
+li:first-child {
+    margin-right: 40px;
+}
+
+li a:link, li a:visited {
+  border: 2px solid lightgreen;
+  color: black;
+  padding: 5px 25px;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+} */
+
+/* li a:hover, li a:active {
+    color: white;
+    background-color: green;
+} */
+
+/* .signin-container {
+    text-align: center;
+} */
+
+/* .login-container {
+    border: 2px solid lightgreen;
+    text-align: center;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 1px 3px 6px rgba(0, 0, 0, .5);
+} */
+
+.mid-container {
+    /* display: flex;
+    justify-content: space-between; */
+    width: 80%;
+    margin: 80px auto 50px;
+    position: relative;
+}
+
+@media screen and (max-width: 700px){
+    .mid-container{
+        width: 100%;
+    }
+}
+
+.circle {
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    background-color: #bbb;
+    border-radius: 50%;
+    z-index: -100;
+    top: -30px;
+    left: -50px;
+    opacity: 0.5;
+}
+
+.circle1 {
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    background-color: lightgreen;
+    border-radius: 50%;
+    z-index: -80;
+    top: 50px;
+    left: 0px;
+    opacity: 0.5;
+}
+
+.text {
+    position: absolute;
+    font-size: 35px;
+    top: 30px;
+    left: 100px;
+}
+
+.text1 {
+    /* position: absolute; */
+    font-size: 45px;
+    /* top: 40px;
+    left: 150px; */
+    font-weight: bold;
+    color: lightgreen;
+    font-style: italic;
+}
+
+.description {
+    width: 85%;
+    font-size: 20px;
+    font-weight: bold;
+}
+#flex-container{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#flex-container p{
+    text-align: center;
+}
+
+@media (max-width: 1023px) {
+    .mid-container {
+        flex-direction: column;
+    }
+    
+    .mid-logo {
+        margin-top: 50px;
+    }
+}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ 
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ 

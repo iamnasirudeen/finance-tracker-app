@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="icon" href="/img/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fugaz+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <title>Helios Financial App Tracker</title>
+    <link rel='stylesheet' type='text/css' href='/css/bootstrap.min.css'>
+    <!-- <link rel='stylesheet' type='text/css' href='/css/responsive.css'> -->
+    <link rel='stylesheet' type='text/css' href='/css/style.css'>
+    <style>
+    body{
+        font-family: 'Roboto', sans-serif !important;
+    }
+
+	
+    .form-control {
+	height: 50px;
+	line-height: 50px;
+	padding: 15px;
+	background: none;
+	border-top: 0;
+	border-left: 0;
+	border-radius: 0;
+	border-right: 0;
+	font-size: 0.875rem;
+	background: #fff;
+	border-radius: 3px;
+	border: 1px solid #dee2e6 !important;
+}
+.form-control:focus {
+	color: #5f656b;
+	background: none;
+	outline: 0;
+	box-shadow: none;
+}
+.small-box {
+        border-radius: 2px;
+        position: relative;
+        display: block;
+        margin-bottom: 20px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    }
+
+    .small-box .inner {
+        position: relative;
+        color: #fff !important;
+        padding: 20px;
+    }
+
+    .small-box h3 {
+        font-size: 38px;
+        font-weight: bold;
+        margin: 0 0 10px 0;
+        white-space: nowrap;
+        padding: 0;
+        z-index: 4;
+        color: #fff;
+    }
+
+    .small-box .inner a {
+        color: #fff !important;
+    }
+
+    .small-box p {
+        z-index: 5;
+        font-size: 15px;
+    }
+
+    .bg-purple {
+        background-color: #605ca8 !important;
+    }
+
+    .bg-success {
+        background-color: #19a185 !important;
+    }
+
+    .bg-danger {
+        background-color: #DE524A !important;
+    }
+
+    .bg-warning {
+        background-color: #f1b740 !important;
+    }
+    </style>
+</head>
+<body>
+<div class="overlay">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+       <div class="container">
+         <a class="navbar-brand" href="/">Helios Finance Tracker</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/about">About Us</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/faq">Faq</a>
+      </li>
+      <% if(user) { %>
+            <li class="nav-item active">
+        <a class="nav-link" href="/log-out">Log out</a>
+      </li>
+      <% } %>
+    </ul>
+  </div>
+       </div>
+    </nav>
+            
+            <div class="container app-container mt-5">
+                    <div class="row mb-3 text-white">
+                            <!-- Top Report Start -->
+                            <div class="col-lg-3 col-md-6  col-12 mb-30">
+                    
+                                <div class="small-box bg-success shadow-sm">
+                                    <div class="inner">
+                                        Total Amount Spent: ₦<%= tota == "" ? '0':  tota[0].amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') %>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Top Report End -->
+                            <!-- Top Report Start -->
+                            <div class="col-lg-3 col-md-6  col-12 mb-30">
+                    
+                                <div class="small-box bg-danger shadow-sm">
+                                    <div class="inner">
+                                        This Year: ₦<%= year == "" ? '0':  year[0].amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') %>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- Top Report End -->
+
+                            <!-- Top Report Start -->
+                            <div class="col-lg-3 col-md-6  col-12 mb-30">
+                    
+                                <div class="small-box bg-purple shadow-sm">
+                                    <div class="inner">
+                                        This Month: ₦<%= month == "" ? '0':  month[0].amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') %>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- Top Report End -->
+
+                            <!-- Top Report Start -->
+                            <div class="col-lg-3 col-md-6  col-12 mb-30">
+                    
+                                <div class="small-box bg-warning shadow-sm">
+                                    <div class="inner">
+                                        This week: ₦<%= week == "" ? '0':  week[0].amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') %>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- Top Report End -->
+                        </div>
+                    <div class="row">
+                            <div class="col-12">
+                                    <div class="table-responsive bg-white shadow-sm">
+                                            <% if(success_msg != ""){ %>
+                                                <div class="alert alert-primary shadow-sm mb-3">
+                                                    <%= success_msg %>
+                                                </div>
+                                                <% } %>
+                                                <% if(error_msg != ""){ %>
+                                                <div class="alert alert-danger shadow-sm mb-3">
+                                                    <%= error_msg %>
+                                                </div>
+                                                <% } %>
+                                                <% if(error != ""){ %>
+                                                <div class="alert alert-danger shadow-sm mb-3">
+                                                    <%= error %>
+                                                </div>
+                                                <% } %>
+                                        <% if(userExpenses == "") { %>
+                                        <div class="alert alert-primary">No Record for now</div>
+                                        <% } %>
+                                        <table class="table table-vertical-middle">
+                                            <thead>
+                                                <tr>
+                                                    <th>Items</th>
+                                                    <th>Description</th>
+                                                    <th>Amount</th>
+                                                    <th>Author</th>
+                                                    <th>Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% for(var item of userExpenses) { %>
+                                                <tr>
+                                                    <td><%= item.items %></td>
+                                                    <td><%= item.description %></td>
+                                                    <td>₦<%= item.amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') %></td>
+                                                    <td><%= item.user.email %></td>
+                                                    <td><%= item.createdAt.toDateString() %></td>
+                                                </tr>
+                                                <% } %>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                            </div>
+                    </div>
+                        <form action="/expenses/create" method="POST" class="mt-3">
+                            <div class="form-group">
+                                <input type="text" name="items" placeholder="Item" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="number" name="amount" placeholder="Amount" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="description" id="" cols="30" rows="5" class="form-control" placeholder="Description" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                <!-- <form name="cart">
+                    <table name="cart" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Product</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                <th>Item Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr name="line_items">
+                                <td><button name="remove" class="btn btn-danger btn-sm">Remove</button></td>
+                                <td><input type="text" class="form-control form-control-sm" required /></td>
+                                <td><textarea rows="3"></textarea></td>
+                                <td><input type="text" name="price" value="0.00" class="form-control form-control-sm" /></td>
+                                <td><input type="text" name="item_total" jAutocalc="{price}" class="form-control form-control-sm" required /></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">&nbsp;</td>
+                                <td>Subtotal</td>
+                                <td>&nbsp;</td>
+                                <td><input type="text" name="sub_total" jAutocalc="SUM({item_total})" class="form-control form-control-sm" /></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">&nbsp;</td>
+                                <td>Tax</td>
+                                <td>
+                                    <select name="tax" class="form-control">
+                                        <option value=".06"> CT Tax</option>
+                                        <option value=".00">Tax Free</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="tax_total" jAutocalc="{sub_total} * {tax}" class="form-control form-control-sm" /></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">&nbsp;</td>
+                                <td>Total</td>
+                                <td>&nbsp;</td>
+                                <td><input type="text" name="grand_total" jAutocalc="{sub_total} + {tax_total}" class="form-control form-control-sm" /></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    <button name="add" class="btn btn-primary">Add Row</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form> -->
+            </div>
+        </div>
+        
+        <script src='/js/jquery.min.js'></script>
+    <script src='/js/bootstrap.min.js'></script>
+    </body>
+</html>

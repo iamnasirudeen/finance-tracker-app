@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel="icon" href="/img/favicon.ico">
+        <title>Sign Up</title>
+        <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Fugaz+One&display=swap" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link rel='stylesheet' type='text/css' href='/css/style.css' />
+        <link rel='stylesheet' type='text/css' href='/css/signup.css' />
+        <link rel='stylesheet' type='text/css' href='/css/responsive.css'>
+    </head>
+    <body>
+        <div class="finance">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+       <div class="container">
+         <a class="navbar-brand" href="/">Helios Finance Tracker</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/about">About Us</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/faq">Faq</a>
+      </li>
+    </ul>
+  </div>
+       </div>
+    </nav>
+            
+            
+            <div class="signup-container">
+                <div id="signup-flex"> 
+                    <div class="signup-img signup-item">
+                        <img src="/img/man.png" alt="" class="img-fluid">
+                    </div>
+                    
+                    <div class="signup-form-container signup-item" id="signup-form">
+                        <h3><span style="color: lightgreen">Join our platform today!</span> <br>And never worry about loosing track of your spendings!</h3>
+                        <form class="signup-form" action="/register" method="POST">
+                            <% if(success_msg != ""){ %>
+                                <div class="alert alert-primary shadow-sm mb-3">
+                                    <%= success_msg %>
+                                </div>
+                                <% } %>
+                                <% if(error_msg != ""){ %>
+                                <div class="alert alert-danger shadow-sm mb-3">
+                                    <%= error_msg %>
+                                </div>
+                                <% } %>
+                                <% if(error != ""){ %>
+                                <div class="alert alert-danger shadow-sm mb-3">
+                                    <%= error %>
+                                </div>
+                                <% } %>
+                            <input type="text" placeholder="Full Name" name ="name">
+                            <input type="email" placeholder="Email Address" name="email" required>
+                            <input type="password" placeholder="Password" name="password" required>
+                            <input type="password" placeholder="Confirm Password" name="password2">
+                            <button class="btn btn-success">Register</button>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <script src='/main.js'></script>
+        <script src='/js/jquery.min.js'></script>
+    <script src='/js/bootstrap.min.js'></script>
+    </body>
+</html>
