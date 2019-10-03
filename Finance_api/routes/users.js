@@ -8,12 +8,19 @@ const validateRegisterInput = require("../validation/register");
 const validateLoginInput = require("../validation/login");
 // Load User model
 
+// Facebook Login auth
+router.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email'] }));
+router.get('/auth/facebook/callback', passport.authenticate('facebook', {
+    failureRedirect: '/',
+    successRedirect: '/home'
+}));
+
 router.post("/register", async (req, res) => {
   // Form validation
   const { errors, isValid } = validateRegisterInput(req.body);
   // Check validation
-  if (!isValid) {
-    req.flash('success_msg', errors);
+  if (req.body.password.trim().length < 6) {
+    req.flash('success_msg', 'Password should at least be 5 characters or more');
     return res.redirect('back');
   } else {
     let check = await User.findOne({ email: req.body.email });
