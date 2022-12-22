@@ -36,7 +36,7 @@
     "express-validator": "^5.3.1",
     "is-empty": "^1.2.0",
     "isomorphic-fetch": "^2.2.1",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^5.7.1",
     "passport": "^0.4.0",
     "passport-facebook": "^3.0.0",
